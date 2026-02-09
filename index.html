@@ -862,7 +862,7 @@
     </div>
 
     <script>
-        const API_BASE = 'https://selectionway.examsaathi.site';
+        const API_BASE = 'https://www.mystudyhub.shop/api/selectionway';
 
         // --- SYSTEM STATE ---
         let state = {
@@ -975,7 +975,7 @@
         /* --- DATA HANDLING --- */
         async function fetchBatches() {
             try {
-                const res = await fetch(`${API_BASE}/allbatch`);
+                const res = await fetch(`${API_BASE}/batches`);
                 const json = await res.json();
                 state.batches = json.data || json;
                 document.getElementById('skeleton-grid').style.display = 'none';
