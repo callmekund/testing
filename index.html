@@ -1002,9 +1002,9 @@
             }
 
             grid.innerHTML = data.map(b => {
-                const isFav = state.favorites.includes(b.id.toString());
+                const isFav = state.favorites.includes(b.batchId.toString());
                 return `
-                <div class="glass-card p-0 cursor-pointer group" onclick="confirmOpenBatch('${b.id}', '${b.title}')">
+                <div class="glass-card p-0 cursor-pointer group" onclick="confirmOpenBatch('${b.batchId}', '${b.title}')">
                     <div class="h-32 bg-gray-800 relative overflow-hidden">
                         <img src="${b.banner || b.image || 'https://placehold.co/600x400/111/FFF'}" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
                         <div class="absolute inset-0 bg-gradient-to-t from-[#0f0f11] to-transparent"></div>
@@ -1042,13 +1042,13 @@
         function goHome() { switchTab('home'); }
         function showPage(id) {
             document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-            document.getElementById(id).classList.add('active');
+            document.getElementById(batchId).classList.add('active');
             window.scrollTo(0, 0);
         }
 
         /* --- BATCH & CONTENT --- */
         function confirmOpenBatch(id, title) {
-            state.currentBatchId = id;
+            state.currentBatchId = batchId;
             document.getElementById('details-batch-title').innerText = title;
             showPage('page-batch-menu');
         }
